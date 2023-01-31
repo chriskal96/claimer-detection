@@ -5,8 +5,8 @@ import os
 
 import torch
 from torch.utils.data import DataLoader, RandomSampler
+from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm, trange
-
 from transformers import (
     AdamW,
     AutoConfig,
@@ -14,10 +14,9 @@ from transformers import (
     AutoTokenizer,
     get_linear_schedule_with_warmup,
 )
+
 import utils as utils
 from evaluate import evaluate
-
-from torch.utils.tensorboard import SummaryWriter
 
 logger = logging.getLogger(__name__)
 
@@ -138,7 +137,7 @@ def main():
 
     # Load pretrained model and tokenizer
     args.model_type = args.model_type.lower()
-    config = AutoConfig.from_pretrained(args.model_name_or_path,)
+    config = AutoConfig.from_pretrained(args.model_name_or_path, )
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path,
                                               do_lower_case=args.do_lower_case,
                                               use_fast=False,

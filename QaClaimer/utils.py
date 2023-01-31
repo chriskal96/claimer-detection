@@ -4,17 +4,13 @@ from multiprocessing import cpu_count
 
 import numpy as np
 import torch
-
-
 from transformers import (
     MODEL_FOR_QUESTION_ANSWERING_MAPPING,
-    PreTrainedTokenizerBase, is_tf_available, is_torch_available,
+    PreTrainedTokenizerBase, is_torch_available,
 )
-
 from transformers.data.processors.squad import SquadV2Processor, SquadFeatures, \
     _new_check_is_max_context, _improve_answer_span, MULTI_SEP_TOKENS_TOKENIZERS_SET
 from transformers.tokenization_utils_base import TruncationStrategy
-
 
 try:
     from torch.utils.tensorboard import SummaryWriter
@@ -262,18 +258,17 @@ def squad_convert_example_to_features_init(tokenizer_for_convert: PreTrainedToke
 
 
 def squad_convert_examples_to_features(
-    examples,
-    tokenizer,
-    max_seq_length,
-    doc_stride,
-    max_query_length,
-    is_training,
-    padding_strategy="max_length",
-    threads=1,
-    tqdm_enabled=True,
-    accept_answers_not_in_text=False,
+        examples,
+        tokenizer,
+        max_seq_length,
+        doc_stride,
+        max_query_length,
+        is_training,
+        padding_strategy="max_length",
+        threads=1,
+        tqdm_enabled=True,
+        accept_answers_not_in_text=False,
 ):
-
     from multiprocessing import Pool
     from functools import partial
     from tqdm import tqdm
@@ -303,7 +298,7 @@ def squad_convert_examples_to_features(
     unique_id = 1000000000
     example_index = 0
     for example_features in tqdm(
-        features, total=len(features), desc="add example index and unique id", disable=not tqdm_enabled
+            features, total=len(features), desc="add example index and unique id", disable=not tqdm_enabled
     ):
         if not example_features:
             continue

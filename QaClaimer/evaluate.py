@@ -1,13 +1,12 @@
 import argparse
 import json
 import logging
-import timeit
 import os
+import timeit
 
 import torch
 from torch.utils.data import DataLoader, SequentialSampler
 from tqdm import tqdm
-
 from transformers import (
     AutoModelForQuestionAnswering,
     AutoTokenizer,
@@ -17,6 +16,7 @@ from transformers.data.metrics.squad_metrics import (
     squad_evaluate,
 )
 from transformers.data.processors.squad import SquadResult
+
 import utils as utils
 
 logger = logging.getLogger(__name__)
