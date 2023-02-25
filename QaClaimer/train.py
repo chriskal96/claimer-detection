@@ -93,9 +93,8 @@ def train(args, train_dataset, model, tokenizer):
                 logging_loss = tr_loss
 
                 # Save model checkpoint
-                if args.save_steps > 0 and global_step % args.save_steps == 0:
+                if args.save_checkpoints:
                     output_dir = os.path.join(args.output_dir, "checkpoint-{}".format(global_step))
-                    # Take care of distributed/parallel training
                     model_to_save = model.module if hasattr(model, "module") else model
                     model_to_save.save_pretrained(output_dir)
                     tokenizer.save_pretrained(output_dir)
@@ -152,6 +151,7 @@ def main():
     model.to(args.device)
 
     # Training
+    train_dataset = utils.transform_data_to_features(args, tokenizer, evaluate=False)
     train_dataset = utils.transform_data_to_features(args, tokenizer, evaluate=False)
     global_step, tr_loss = train(args, train_dataset, model, tokenizer)
 

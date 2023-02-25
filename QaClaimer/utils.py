@@ -520,6 +520,8 @@ def parse_args(parser):
     parser.add_argument("--seed", type=int, default=42, help="random seed for initialization")
     parser.add_argument("--accept_answers_not_in_text", action="store_true",
                         help="Whether or not the model accepts answers that are not in the text")
+    parser.add_argument("--save_checkpoints", action="store_true",
+                        help="Whether or not the model saves its checkpoints")
 
     args = parser.parse_args()
 
