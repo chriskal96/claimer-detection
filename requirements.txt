@@ -1,0 +1,6 @@
+numpy==1.19.5
+spacy==2.3.7
+tensorboardX==2.6
+torch==1.6.0
+tqdm==4.48.2
+transformers==3.5.0
