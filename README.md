@@ -13,7 +13,7 @@ To train and evaluate the models, three datasets were used :
  - For SQUAD, the train and eval datasets can be found here : https://rajpurkar.github.io/SQuAD-explorer/
  - For GNQ, instructions and the datasets can be found here : https://ai.google.com/research/NaturalQuestions/download 
  
-For GNQ the simplified version was used. It was also transformed into the same format as SQUAD ([script](https://github.com/chriskal96/claimer-detection/blob/main/data/convert_gnq_to_squad.py)) in order to take advantage of already established libraries.
+For GNQ, the simplified version was used. It was also transformed into the same format as SQUAD ([script](https://github.com/chriskal96/claimer-detection/blob/main/data/convert_gnq_to_squad.py)), in order to take advantage of already established libraries.
 In folder [data](https://github.com/chriskal96/claimer-detection/tree/main/data) there are data exploration files for SQUAD 2.0, Google's Natural Question and a new annotated dataset used for testing the models.
 
 
@@ -44,7 +44,7 @@ python QaClaimer/train.py \
     --max_seq_length <mac sequence length> \
     --accept_answers_not_in_text <only if the model is going to be trained with answers not in the text>
    ```
- By setting accept_answers_not_in_text, the model can be trained to predict answers that are not in the context.
+ By setting accept_answers_not_in_text, the model can be trained to predict answers that are not in the context (not to be used for SQUAD or GNQ dataset, since for those datasets the answers are in the text).
  
 ## How to Evaluate the Model
 
