@@ -11,10 +11,10 @@ To train and evaluate the models 3 datasets were used :
  
 ### Download datasets :
  - For SQUAD, the train and eval datasets can be found here : https://rajpurkar.github.io/SQuAD-explorer/
- - For GNQ, intructions and the datasets can be found here : https://ai.google.com/research/NaturalQuestions/download 
+ - For GNQ, instructions and the datasets can be found here : https://ai.google.com/research/NaturalQuestions/download 
  
 For GNQ the simplified version was used. It was also transformed into the same format as SQUAD ([script](https://github.com/chriskal96/claimer-detection/blob/main/data/convert_gnq_to_squad.py)) in order to take advantage of already established libraries.
-In folder data there are data exploration file for SQUAD 2.0, Google's Natural Question and a new annotated dataset used for testing the models.
+In folder [data](https://github.com/chriskal96/claimer-detection/tree/main/data) there are data exploration files for SQUAD 2.0, Google's Natural Question and a new annotated dataset used for testing the models.
 
 
 ## How to Train the Model
@@ -31,9 +31,9 @@ To train the model, follow the steps below:
 - Run the following command to start training the model:
 ```
 python QaClaimer/train.py \
-    --model_type <model name, ex roberta,bert etx> \
-    --model_name_or_path <path to the model, could be an existing model or local fodler with a model> \
-    --output_dir <output dir for the mdoel> \
+    --model_type <model name, e.g. roberta,bert etc> \
+    --model_name_or_path <path to the model, could be an existing model or local folder with a model> \
+    --output_dir <output directory for the new trained model> \
     --data_dir <folder with the data> \
     --train_file <file with trained data> \
     --do_lower_case \
@@ -44,7 +44,8 @@ python QaClaimer/train.py \
     --max_seq_length <mac sequence length> \
     --accept_answers_not_in_text <only if the model is going to be trained with answers not in the text>
    ```
-  
+ By setting accept_answers_not_in_text, the model can be trained to predict answers that are not in the context.
+ 
 ## How to Evaluate the Model
 
 After you have succesfully execute the above steps (cloning, instal etc) :
@@ -75,8 +76,8 @@ The same models trained on the GNQ datasets :
 | Score   | 79.96  | 82.95      | 78.89  | 79.51  |
 
 Training occured on a server of 2 GPUs with 12 batch size per GPU and a learning rate of 3e-05.
-Experimenting with different hyperparameters did not increased the F1 score.
-The models that created from those datasets were later fine tuned using the new dataset (also transformed into SQUAD form).
+Experimenting with different hyperparameters did not increase the F1 scores.
+The models that were created by training on those datasets were later fine tuned using the new annotated dataset (also transformed into SQUAD format).
 
 ## How to make Predictions
 Once the model is trained or if you already have a model, you can use it to make predictions by following the steps below:
@@ -90,7 +91,7 @@ python predict.py \
     --model_name_or_path <model name or path to the model>
 ```
 
-The returned value will be the Claimer of the claim. If the value that the model returns is not an organisation or a person (a named enitty recognition model was used), or the predicted propability is bellow 0.01 then the returned value will be 'Author' meaning the Author of the context.
+The returned value will be the Claimer of the Claim. If the value that the model returns is not an organisation or a person (a named enitty recognition model was used to filter the model's output), or the predicted propability is bellow 0.01 (defined threshold for accepting predicted values) then the returned value will be 'Author' meaning the Author of the context.
 
 ## Acknowledgments
 
