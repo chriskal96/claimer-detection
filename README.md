@@ -15,7 +15,7 @@ To train the model, follow the steps below:
 
 - Run the following command to start training the model:
 ```
-sudo python3 train.py \
+python train.py \
     --model_type <model name, ex roberta,bert etx> \
     --model_name_or_path <path to the model, could be an existing model or local fodler with a model> \
     --output_dir <output dir for the mdoel> \
@@ -37,7 +37,7 @@ After you have succesfullt do the above steps (cloning, instal etc) :
 - Run the following command to start evaluating the model:
 
 ```
-sudo python3 evaluate.py \
+python evaluate.py \
     --model_name_or_path <path to the model, could be an existing model or local fodler with a model> \
     --output_dir <output dir for the mdoel> \
     --data_dir <folder with the data> \
@@ -51,7 +51,7 @@ Once the model is trained or if you already have a model, you can use it to make
 
 - Run the following command to make a prediction:
 ```
-python3 predict.py \
+python predict.py \
     --context <the context you want to make a prediction on> \
     --claim <the claim what you want to find the claimer> \
     --model_name_or_path <model name or path to the model>
