@@ -90,7 +90,7 @@ python predict.py \
     --model_name_or_path <model name or path to the model>
 ```
 
-The returned value will be the Claimer of the claim. If the value that the model returns is not an organisation or a person, or the predicted propability is bellow 0.01 then the reurned value will be 'Author' meaning the Author of the context.
+The returned value will be the Claimer of the claim. If the value that the model returns is not an organisation or a person (a named enitty recognition model was used), or the predicted propability is bellow 0.01 then the returned value will be 'Author' meaning the Author of the context.
 
 ## Acknowledgments
 
