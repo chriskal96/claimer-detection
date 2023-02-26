@@ -4,7 +4,7 @@ This repository contains code for a machine learning model that predicts the cla
 
 
 ## Data
-To train and evaluate the models 3 datasets were used :
+To train and evaluate the models, three datasets were used :
  - Stanford Question Answering Dataset (SQUAD)
  - Google's Natural Question Dataset (GNQ)
  - A new annotated dataset regarding food and health created as part of this project (not available to public)
