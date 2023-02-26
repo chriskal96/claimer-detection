@@ -30,7 +30,7 @@ To train the model, follow the steps below:
 
 - Run the following command to start training the model:
 ```
-python train.py \
+python QaClaimer/train.py \
     --model_type <model name, ex roberta,bert etx> \
     --model_name_or_path <path to the model, could be an existing model or local fodler with a model> \
     --output_dir <output dir for the mdoel> \
@@ -52,7 +52,7 @@ After you have succesfully execute the above steps (cloning, instal etc) :
 - Run the following command to start evaluating the model:
 
 ```
-python evaluate.py \
+python QaClaimer/evaluate.py \
     --model_name_or_path <path to the model, could be an existing model or local fodler with a model> \
     --output_dir <output dir for the mdoel> \
     --data_dir <folder with the data> \
