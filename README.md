@@ -44,7 +44,7 @@ python QaClaimer/train.py \
     --max_seq_length <mac sequence length> \
     --accept_answers_not_in_text <only if the model is going to be trained with answers not in the text>
    ```
- By setting accept_answers_not_in_text, the model can be trained to predict answers that are not in the context (not to be used for SQUAD or GNQ dataset, since for those datasets the answers are in the text).
+ By setting accept_answers_not_in_text, the model can be trained to predict answers that are not in the context (not to be used for SQUAD or GNQ dataset, since for those datasets the answers are in the text). The results are saved in results.txt.
  
 ## How to Evaluate the Model
 
