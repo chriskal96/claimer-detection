@@ -69,7 +69,7 @@ The resulted F1 score by training 4 bert based models in the SQUAD dataset :
 |---------|--------|------------|--------|--------|
 | Score   | 83.46  | 68.58      | 80.87  | 79.54  |
  
-The same models trained on the GNQ datasets :
+After the models were trained on SQUAD, i trained them on the GNQ datasets, and got the following results:
 
 | Model   | Roberta | DistilBert | Albert | Bart   |
 |---------|--------|------------|--------|--------|
