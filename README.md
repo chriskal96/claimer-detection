@@ -1,6 +1,6 @@
-# Claimer Detection using BERT-based Language Models
+# Claimer Detection using Natural Language Processing Models
 
-This repository contains code for a machine learning model that predicts the claimer of a claim. The model has been trained on four BERT-based language models: RoBERTa, BART, ALBERT, and DistilBERT.
+This repository contains code for a machine learning model that predicts the claimer of a claim. The model has been trained on four  Natural Language Processing models: RoBERTa, BART, ALBERT, and DistilBERT.
 
 
 ## Data
@@ -63,13 +63,13 @@ python QaClaimer/evaluate.py \
 
 ## Results
 
-The resulted F1 score by training 4 bert based models in the SQUAD dataset :
+The resulted F1 score by training the 4 models in the SQUAD dataset :
 
 | Model   | Roberta | DistilBert | Albert | Bart   |
 |---------|--------|------------|--------|--------|
 | Score   | 83.46  | 68.58      | 80.87  | 79.54  |
  
-After the models were trained on SQUAD, i trained them on the GNQ datasets, and got the following results:
+After the models were trained on SQUAD, i trained the resulted models on the GNQ datasets, and got the following results:
 
 | Model   | Roberta | DistilBert | Albert | Bart   |
 |---------|--------|------------|--------|--------|
